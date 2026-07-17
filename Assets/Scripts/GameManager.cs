@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if(winPanel != null)
@@ -35,16 +34,15 @@ public class GameManager : MonoBehaviour
         UpdateObjectiveText();
     }
 
-    // Update is called once per frame
-   void Update()
-{
-    UpdateObjectiveText();
-
-    if(gameOver && Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+    void Update()
     {
-        RestartGame();
+        UpdateObjectiveText();
+
+        if(gameOver && Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            RestartGame();
+        }
     }
-}
 
     private void UpdateObjectiveText()
     {
@@ -65,6 +63,9 @@ public class GameManager : MonoBehaviour
         }
         gameOver = true;
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SaveSystem.DeleteSave();
         if(losePanel != null)
         {
             losePanel.SetActive(true);
@@ -79,6 +80,9 @@ public class GameManager : MonoBehaviour
         }
         gameOver = true;
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SaveSystem.DeleteSave();
         if(winPanel != null)
         {
             winPanel.SetActive(true);

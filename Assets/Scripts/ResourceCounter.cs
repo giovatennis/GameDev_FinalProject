@@ -28,4 +28,11 @@ public class ResourceCounter : MonoBehaviour
             UpdateUI();
         }
     }
+
+    // Used by the save/load system to restore a previously saved count
+    public void SetSymbolCount(int count)
+    {
+        symbols = count;
+        UpdateUI();
+    }
 }

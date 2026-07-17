@@ -101,6 +101,14 @@ public class DayNightCycle : MonoBehaviour
         }
     }
 
+    // Used by the save/load system to restore a previously saved day/night state
+    public void SetPhase(bool night)
+    {
+        phase = night ? Phase.Night : Phase.Day;
+        phaseTimer = 0f;
+        isNight = night;
+    }
+
     // Returns 1 = full day brightness, 0 = full night darkness, blended during transitions
     private float GetLightAmount()
     {

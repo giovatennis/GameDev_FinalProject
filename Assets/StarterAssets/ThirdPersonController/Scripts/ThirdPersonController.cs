@@ -82,6 +82,9 @@ namespace StarterAssets
         [Tooltip("When true, movement, jump, and gravity update are skipped (used by PlayerRest). Camera look still works.")]
         public bool InputLocked = false;
 
+        [Tooltip("When true, camera look input is also ignored (used by the pause menu, NOT by resting - resting should still allow looking around).")]
+        public bool CursorControlLocked = false;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -210,6 +213,11 @@ namespace StarterAssets
 
         private void CameraRotation()
         {
+            if (CursorControlLocked)
+            {
+                return;
+            }
+
             // if there is an input and camera position is not fixed
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {

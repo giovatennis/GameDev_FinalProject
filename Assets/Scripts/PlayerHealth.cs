@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     public bool IsDead { get; private set; }
     public bool IsAtFullHealth => currentHealth >= maxHealth;
+    public int CurrentHealth => currentHealth;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,6 +51,14 @@ public class PlayerHealth : MonoBehaviour
                 GameManager.Instance.OnPlayerDeath();
             }
         }
+        UpdateUI();
+    }
+
+    // Used by the save/load system to restore a previously saved health value
+    public void SetHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(amount, 0, maxHealth);
+        IsDead = currentHealth <= 0;
         UpdateUI();
     }
 
