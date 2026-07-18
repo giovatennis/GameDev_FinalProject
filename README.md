@@ -165,7 +165,7 @@ feature requirement.
   Controller (Unity Technologies)
 
 ## Links
-- itch.io Playable Build: [link]
+- itch.io Playable Build: https://giovatennis.itch.io/ruins-expedition
 - YouTube Demo Video: [link]
 
 ## Credits
