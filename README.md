@@ -166,7 +166,7 @@ feature requirement.
 
 ## Links
 - itch.io Playable Build: https://giovatennis.itch.io/ruins-expedition
-- YouTube Demo Video: [link]
+- YouTube Demo Video: https://www.youtube.com/watch?v=N7BbWpvKvEI
 
 ## Credits
 Built by Giovanni Bellio Rincon for Final Project.
